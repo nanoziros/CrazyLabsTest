@@ -14,7 +14,6 @@
     "pointsExplodingExplosion": 0
   },
   "ingame": {
-    "enableMissiles": true,
     "reviveCheckMask": {
       "value": 35328
     },

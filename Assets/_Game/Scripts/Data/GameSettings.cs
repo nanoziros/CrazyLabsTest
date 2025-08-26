@@ -14,6 +14,14 @@ namespace LightItUp.Data
                 return Instance.block;
             }
         }
+        
+        public static PowerUpSettings PowerUps
+        {
+            get
+            {
+                return Instance.powerUp;
+            }
+        }
 
         public static InGameSettings InGame
         {
@@ -47,6 +55,7 @@ namespace LightItUp.Data
 
 
         public BlockSettings block;
+        public PowerUpSettings powerUp;
         public InGameSettings ingame;
         public PlayerSettings player;
         public CameraFocusSettings cameraFocus;
@@ -69,11 +78,17 @@ namespace LightItUp.Data
             public int pointsExplodingBlockLightsUp = 15;
             public int pointsExplodingExplosion = 15;
         }
+        
+        [System.Serializable]
+        public class PowerUpSettings
+        {
+            public bool enableMissiles = false;
+            public int missilesPerLaunch = 3;
+        }
 
         [System.Serializable]
         public class InGameSettings
         {
-            public bool enableMissiles = false;
             public LayerMask reviveCheckMask;
             public float reviveYDistance = 2;
             public int levelsPrPage = 10;

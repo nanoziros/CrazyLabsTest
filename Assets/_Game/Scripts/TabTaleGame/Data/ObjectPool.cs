@@ -47,7 +47,12 @@ namespace LightItUp.Data
         {
             return Instance.missiles.GetObject();
         }
-
+        
+        public static void ReturnMissile(Missile missile)
+        {
+            Instance.missiles.ReturnObject(missile);
+        }
+        
         public static LitArea GetLitArea()
         {
             return Instance.litAreas.GetObject();

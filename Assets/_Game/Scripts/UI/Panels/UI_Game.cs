@@ -63,13 +63,13 @@ namespace LightItUp.UI
 			} 
 			
 			tutorialOverlay.SetActive(GameData.PlayerData.showControlsTutorial || GameData.PlayerData.selectedLevelIdx == 0);
-			missileButton.gameObject.SetActive(GameSettings.InGame.enableMissiles);
 			rightHand.SetActive(true);
 			leftHand.SetActive(true);
 			rightHand.GetComponent<Animator>().SetTrigger("AnimateIn");
 			leftHand.GetComponent<Animator>().SetTrigger("AnimateInDelayed");
 			middleLine.SetActive(true);
 			middleLineBottom.SetActive(true);
+			missileButton.gameObject.SetActive(false);
 			GameManager.Instance.playerStart += HideHand;
 			//startHand.SetActive(true);
 			levelName.SetActive(true);
@@ -104,6 +104,7 @@ namespace LightItUp.UI
 			}
 			levelName.GetComponent<Animator>().Play("ScaleOut");
 			levelNameBackdrop.GetComponent<Animator>().Play("FadeOut");
+			missileButton.gameObject.SetActive(GameSettings.PowerUps.enableMissiles);
 		}
 		public void HideHand()
 		{

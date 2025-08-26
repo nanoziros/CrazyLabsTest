@@ -16,7 +16,7 @@ namespace LightItUp
             switch (type)
             {
                 case BoosterType.Missile:
-                    MissilesController.Instance.LaunchMissile();
+                    MissilesController.Instance.LaunchMissiles();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
