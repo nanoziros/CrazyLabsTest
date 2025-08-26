@@ -24,6 +24,9 @@ namespace LightItUp.Data
         public ParticleFXBasic starPickupFXPrefab;
         public ObjectPool<ParticleFXBasic> starPickupFXs;
 
+        public Missile missilePrefab;
+        public ObjectPool<Missile> missiles;
+
         public void Init() { }
         public override void Awake()
         {
@@ -33,12 +36,17 @@ namespace LightItUp.Data
             celebrationFXs = GetPool(celebrationFXPrefab, 2, transform);
             tutorialTexts = GetPool(tutorialTextPrefab, 4, transform);
             starPickupFXs = GetPool(starPickupFXPrefab, 3, transform);
+            missiles = GetPool(missilePrefab, 3, transform);
         }
         ObjectPool<T> GetPool<T>(T prefab, int startCount, Transform t) where T : PooledObject
         {
             return new ObjectPool<T>(prefab, startCount, t);
         }
-
+        
+        public static Missile GetMissile()
+        {
+            return Instance.missiles.GetObject();
+        }
 
         public static LitArea GetLitArea()
         {

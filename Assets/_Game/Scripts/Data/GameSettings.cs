@@ -1,13 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System.IO;
-using Newtonsoft.Json;
+﻿using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-using UnityEngine;
-using LightItUp.Data;
 
 namespace LightItUp.Data
 {
@@ -79,6 +73,7 @@ namespace LightItUp.Data
         [System.Serializable]
         public class InGameSettings
         {
+            public bool enableMissiles = false;
             public LayerMask reviveCheckMask;
             public float reviveYDistance = 2;
             public int levelsPrPage = 10;

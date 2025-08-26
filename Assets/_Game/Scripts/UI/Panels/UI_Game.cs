@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using LightItUp.Data;
@@ -17,17 +16,14 @@ namespace LightItUp.UI
 		public List<Animator> anims;
 		public GameObject levelName;
 		public GameObject levelNameBackdrop;
-		//public TextMeshProUGUI feedbackPoints;
 		public GameObject progress;
-
+		public Button missileButton;
 		public Button pauseButton;
 
 		void Awake()
 		{
 			PlayerController.StateChangedEvent += PlayerControllerOnStateChangedEvent;
 		}
-
-
 
 		void OnDestroy()
 		{
@@ -67,6 +63,7 @@ namespace LightItUp.UI
 			} 
 			
 			tutorialOverlay.SetActive(GameData.PlayerData.showControlsTutorial || GameData.PlayerData.selectedLevelIdx == 0);
+			missileButton.gameObject.SetActive(GameSettings.InGame.enableMissiles);
 			rightHand.SetActive(true);
 			leftHand.SetActive(true);
 			rightHand.GetComponent<Animator>().SetTrigger("AnimateIn");
@@ -80,8 +77,11 @@ namespace LightItUp.UI
 			rightHand.GetComponent<Animator>().SetBool("ShowGameTutorial", GameData.PlayerData.showControlsTutorial);
 			leftHand.GetComponent<Animator>().SetBool("ShowGameTutorial", GameData.PlayerData.showControlsTutorial);
 			AdController.SetBannerAdArea(GetComponent<RectTransform>());
+		}
 
-
+		public void TriggerMissilePowerUp()
+		{
+			PowerUpService.Instance.TriggerPowerUp(PowerUpService.BoosterType.Missile);
 		}
 
 		public void DebugLightAllBlocks()

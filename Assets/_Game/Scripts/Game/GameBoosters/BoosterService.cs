@@ -7,9 +7,6 @@ using System;
 
 namespace LightItUp
 {
-	
-
-
 	public enum BoosterType
 	{
 		MagicHat,
